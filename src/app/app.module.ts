@@ -4,16 +4,14 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
-    ListPage
+    MyApp, // Componentes ou páginas
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -21,13 +19,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
+    MyApp, // Quando o declarations por páginas, precisamos referenciar em entry
     HomePage,
-    ListPage
   ],
   providers: [
-    StatusBar,
-    SplashScreen,
+    StatusBar, // Classes que receberão injeções
+    SplashScreen, // Garante a mesma instancia da injeção
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
