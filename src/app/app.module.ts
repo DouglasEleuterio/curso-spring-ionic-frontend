@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {HttpClientModule} from '@angular/common/http';
 import {CategoriaService} from "./services/domain/categoria.service";
+import {ErrorInterceptorProvider} from "../interceptors/error-interceptor";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {CategoriaService} from "./services/domain/categoria.service";
     StatusBar, // Classes que receberão injeções
     SplashScreen, // Garante a mesma instancia da injeção
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    CategoriaService // Escopo do serviço aqui é global. caso seja especifico, importar no modulo especifico.
+    CategoriaService, // Escopo do serviço aqui é global. caso seja especifico, importar no modulo especifico.
+    ErrorInterceptorProvider
   ]
 })
 export class AppModule {}

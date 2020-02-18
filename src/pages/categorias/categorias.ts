@@ -32,11 +32,11 @@ export class CategoriasPage {
     this.categoriaService.findAll() // Chamada Assincrona
       .subscribe(response => {
           this.items = response;
-        console.log(response);
+          console.log(response);
         },
-        error => {
-          console.log(error);
-        });
+        // Erro tratado pelo interceptor.
+        // Caso queira algum comportamento diferente, implementar aqui.
+        error => {});
   }
 
 }
