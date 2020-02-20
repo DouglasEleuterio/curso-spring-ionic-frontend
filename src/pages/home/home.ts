@@ -40,7 +40,7 @@ export class HomePage {
   login() {
     this.auth.autheticate(this.creds)
       .subscribe(response => {
-          console.log(response.headers.get('Authorization'));
+        this.auth.successFullLogin(response.headers.get('Authorization')); // Ao fazer o Login, armazenamos o token no localStorage
           this.navCtrl.setRoot('CategoriasPage');
         },
         error => {
